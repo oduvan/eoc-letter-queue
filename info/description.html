@@ -1,0 +1,130 @@
+<p>
+    In computer science, a queue is a particular kind of data type in which the entities in the collection
+    are kept in order and the principal operations on the collection are the addition of entities to the rear terminal
+    position (enqueue or push),
+    and removal of entities from the front terminal position (dequeue or pop).
+    This makes the queue a First-In-First-Out (FIFO) data structure.
+    In a FIFO data structure, the first element added to the queue will be the first one to be removed.
+    This is equivalent to the requirement that once a new element is added, all elements that were added before have to
+    be removed before the new element can be removed.
+</p>
+
+<p>
+    We will emulate the queue process with Python. You are given a sequence of commands:<br>
+    - "PUSH X" -- enqueue <strong>X</strong>, where <strong>X</strong> is a letter in uppercase.<br>
+    - "POP" -- dequeue the front position. if the queue is empty, then do nothing.<br>
+    The queue can only contain letters.
+</p>
+
+<p>
+    You should process all commands and assemble letters which remain in the queue in one word from the front to the
+    rear of the queue.
+</p>
+
+<p>
+    Let's look at an example, here’s the sequence of commands:<br>
+    ["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
+</p>
+
+<style>
+    #example-table {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    #example-table td,
+    #example-table th {
+        border: 1px #294270 solid;
+        padding: 4px;
+        font-size: 16px;
+        text-align: center;
+    }
+</style>
+
+<table id="example-table">
+    <tr>
+        <th>Command</th>
+        <th>Queue</th>
+        <th>Note</th>
+    </tr>
+    <tr>
+        <td>PUSH A</td>
+        <td>A</td>
+        <td>Added "A" in the empty queue</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Removed "A"</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>The queue is empty already</td>
+    </tr>
+    <tr>
+        <td>PUSH Z</td>
+        <td>Z</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH D</td>
+        <td>ZD</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH O</td>
+        <td>ZDO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td>DO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH T</td>
+        <td><strong>DOT</strong></td>
+        <td>The result</td>
+    </tr>
+</table>
+
+<p>
+    <strong>Input: </strong> A sequence of commands as a list of strings.
+</p>
+
+<p>
+    <strong>Output: </strong> The queue remaining as a string.
+</p>
+
+<p class="for_info_only">
+    <strong>Example:</strong>
+    {% if interpreter.slug == "js-node" %}
+<pre class="brush: python">
+letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
+letterQueue(["POP", "POP"]) == ""
+letterQueue(["PUSH H", "PUSH I"]) == "HI"
+letterQueue([]) == ""
+</pre>
+    {% else %}
+<pre class="brush: python">
+letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
+letter_queue(["POP", "POP"]) == ""
+letter_queue(["PUSH H", "PUSH I"]) == "HI"
+letter_queue([]) == ""
+</pre>
+    {% endif %}
+</p>
+
+<p class="for_info_only">
+    <strong>How it is used: </strong>
+    Queues provide services in computer science, transportation,
+    and operations research where various entities such as data, objects, persons, or events are stored and
+    held to be processed later. In these contexts, the queue performs the function of a buffer.
+</p>
+
+<p>
+    <strong>Precondition:</strong><br>
+    0 &le; len(<strong>commands</strong>) &le; 30;<br>
+    all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in <strong>commands</strong>)
+</p>

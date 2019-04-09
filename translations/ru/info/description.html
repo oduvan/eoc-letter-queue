@@ -1,0 +1,128 @@
+<p>
+    В области информационных технологий,
+    очередь это структура данных с принципом доступа к элементам «первый пришёл — первый вышел»
+    (FIFO, First In — First Out).
+    Добавление элемента (принято обозначать словом "enqueue" — поставить в очередь или "push") возможно лишь в конец очереди,
+    выборка — только из начала очереди (что принято называть словом "dequeue" — убрать из очереди или "pop"),
+    при этом выбранный элемент из очереди удаляется.
+    То есть чтобы добраться до нового добавленного элемента, нам надо "вытащить" элементы, которые были добавлены ранее.
+</p>
+
+<p>
+    Попробуем сделать модель очереди на Python.
+    Вам дана последовательность команд:<br>
+    - "PUSH X" -- поставить в очередь <strong>X</strong>, где <strong>X</strong> - это буква в верхнем регистре.<br>
+    - "POP" -- убрать из начала очереди элемент. Если очередь пустая, то это команда ничего не делает.<br>
+    Очередь содержит только буквы.
+</p>
+
+<p>
+    Вам необходимо обработать все команды и собрать все буквы, которые остались в очереди, в одно слово,
+    от начала до конца очереди.
+</p>
+
+<p>
+    Рассмотрим пример. Дана последовательность команд:<br>
+    ["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
+</p>
+
+<style>
+    #example-table {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    #example-table td,
+    #example-table th {
+        border: 1px #294270 solid;
+        padding: 4px;
+        font-size: 16px;
+        text-align: center;
+    }
+</style>
+<table id="example-table">
+    <tr>
+        <th>Команда</th>
+        <th>Очередь</th>
+        <th>Примечания</th>
+    </tr>
+    <tr>
+        <td>PUSH A</td>
+        <td>A</td>
+        <td>Добавили "A" в пустую очередь</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Убрали "A"</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Очередь уже пуста</td>
+    </tr>
+    <tr>
+        <td>PUSH Z</td>
+        <td>Z</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH D</td>
+        <td>ZD</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH O</td>
+        <td>ZDO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td>DO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH T</td>
+        <td><strong>DOT</strong></td>
+        <td>Результат</td>
+    </tr>
+</table>
+
+<p>
+    <strong>Входные данные: </strong> Последовательность команд, как список (list) строк (str).
+</p>
+
+<p>
+    <strong>Выходные данные: </strong> Содержание очереди, как строка (str).
+</p>
+
+<p class="for_info_only">
+    <strong>Пример:</strong>
+    {% if interpreter.slug == "js-node" %}
+<pre class="brush: python">
+letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
+letterQueue(["POP", "POP"]) == ""
+letterQueue(["PUSH H", "PUSH I"]) == "HI"
+letterQueue([]) == ""
+</pre>
+    {% else %}
+<pre class="brush: python">
+letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
+letter_queue(["POP", "POP"]) == ""
+letter_queue(["PUSH H", "PUSH I"]) == "HI"
+letter_queue([]) == ""
+</pre>
+    {% endif %}
+</p>
+
+<p class="for_info_only">
+    <strong>Зачем это нужно: </strong>
+    Очередь используется в информационных технологиях, транспорте и для обработки команд.
+    Очередь нужна, чтобы упорядочить данные и нагрузку поступающую одновременно.
+</p>
+
+<p>
+    <strong>Предусловия:</strong><br>
+    0 &le; len(<strong>commands</strong>) &le; 30;<br>
+    all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in <strong>commands</strong>)
+</p>
