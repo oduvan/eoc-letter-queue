@@ -7,6 +7,9 @@ function letterQueue(commands){
 var assert = require('assert');
 
 if (!global.is_checking) {
+    console.log('Example:')
+    console.log(letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]))
+    
     assert.equal(letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]), "DOT", "dot example");
     assert.equal(letterQueue(["POP", "POP"]), "", "Pop, Pop, empty");
     assert.equal(letterQueue(["PUSH H", "PUSH I"]), "HI", "Hi!");

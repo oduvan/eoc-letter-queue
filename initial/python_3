@@ -2,6 +2,9 @@ def letter_queue(commands):
     return ""
 
 if __name__ == '__main__':
+    print("Example:")
+    print(letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]))
+    
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT", "dot example"
     assert letter_queue(["POP", "POP"]) == "", "Pop, Pop, empty"
