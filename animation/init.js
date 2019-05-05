@@ -7,7 +7,7 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                     return;
                 }
                 $expl.html(
-                '    <table>' +
+                '    <table style="color: black">' +
                 '        <tr>' +
                 '            <th>Command</th>' +
                 '            <th>Queue</th>' +
