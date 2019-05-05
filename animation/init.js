@@ -1,12 +1,24 @@
 requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
     function (extIO, $, TableComponent) {
-        var $tryit;
         var io = new extIO({
             animation: function($expl, data){
                 var checkioInput = data.in;
                 if (!checkioInput){
                     return;
                 }
+                $expl.html('<div class="animation-content center-exp">'
+                '<div class="call"></div>'
+                '<div class="output"></div>'
+                '<div class="explanation center-exp">'
+                '    <table>'
+                '        <tr>'
+                '            <th>Command</th>'
+                '            <th>Queue</th>'
+                '        </tr>'
+                '    </table>'
+                '</div>'
+                '<div class="answer"></div>'
+                '</div>')
 
                 var queue = [];
                 var $table = $expl.find("table");
@@ -24,27 +36,6 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                     $tr.append($("<td></td>").text(queue.join("")));
                     $table.append($tr);
                 }
-            },
-            animationTemplateName: 'animation',
-            tryit: function(){
-                var this_e = this;
-                $tryit = $(this_e.extSetHtmlTryIt(this_e.getTemplate('tryit')));
-
-                var tryitDataInput = $tryit.find('.tryit_text_input');
-                tryitDataInput.focus();
-
-                $tryit.find('.bn-check').click(function (e) {
-                    var tryitData = tryitDataInput.val().split(/\,+/);
-                    tryitData = $.map(tryitData, function (val) {
-                        return val.trim()
-                    })
-                    this_e.extSendToConsoleCheckiO(tryitData);
-                    e.stopPropagation();
-                    return false;
-                });
-            },
-            retConsole: function (ret) {
-                $tryit.find('.checkio_result').html("Your result:<br>" + ret);
             },
             functions: {
                 js: 'letterQueue',
