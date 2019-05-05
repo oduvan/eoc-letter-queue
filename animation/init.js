@@ -6,19 +6,13 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                 if (!checkioInput){
                     return;
                 }
-                $expl.html('<div class="animation-content center-exp">' +
-                '<div class="call"></div>' +
-                '<div class="output"></div>' +
-                '<div class="explanation center-exp">' +
+                $expl.html(
                 '    <table>' +
                 '        <tr>' +
                 '            <th>Command</th>' +
                 '            <th>Queue</th>' +
                 '        </tr>' +
-                '    </table>' +
-                '</div>' +
-                '<div class="answer"></div>' +
-                '</div>')
+                '    </table>')
 
                 var queue = [];
                 var $table = $expl.find("table");
