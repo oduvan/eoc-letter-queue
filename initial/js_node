@@ -1,18 +1,14 @@
-"use strict";
-
-function letterQueue(commands){
+export function letterQueue(commands: string[]): string{
     return "";
 }
 
-var assert = require('assert');
+import * as assert from 'assert';
 
-if (!global.is_checking) {
-    console.log('Example:')
-    console.log(letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]))
-    
-    assert.equal(letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]), "DOT", "dot example");
-    assert.equal(letterQueue(["POP", "POP"]), "", "Pop, Pop, empty");
-    assert.equal(letterQueue(["PUSH H", "PUSH I"]), "HI", "Hi!");
-    assert.equal(letterQueue([]), "", "Nothing");
-    console.log("Coding complete? Click 'Check' to review your tests and earn cool rewards!");
-}
+console.log('Example:')
+console.log(letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]))
+
+assert.equal(letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]), "DOT");
+assert.equal(letterQueue(["POP", "POP"]), "");
+assert.equal(letterQueue(["PUSH H", "PUSH I"]), "HI");
+assert.equal(letterQueue([]), "s");
+console.log("Coding complete? Click 'Check' to review your tests and earn cool rewards!");
